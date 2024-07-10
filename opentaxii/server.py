@@ -581,7 +581,7 @@ class TAXII2Server(BaseTAXIIServer):
         ):
             raise Unauthorized()
         response = {
-            "id": collection.id,
+            "id": str(collection.id),
             "title": collection.title,
             "can_read": collection.can_read(context.account),
             "can_write": collection.can_write(context.account),
@@ -614,7 +614,7 @@ class TAXII2Server(BaseTAXIIServer):
                 "more": more,
                 "objects": [
                     {
-                        "id": obj.id,
+                        "id": str(obj.id),
                         "date_added": taxii2_datetimeformat(obj.date_added),
                         "version": taxii2_datetimeformat(obj.version),
                         "media_type": f"application/stix+json;version={obj.spec_version}",
@@ -667,7 +667,7 @@ class TAXII2Server(BaseTAXIIServer):
                 "more": more,
                 "objects": [
                     {
-                        "id": obj.id,
+                        "id":str(obj.id),
                         "type": obj.type,
                         "spec_version": obj.type,
                         **obj.serialized_data,
@@ -750,7 +750,7 @@ class TAXII2Server(BaseTAXIIServer):
                 "more": more,
                 "objects": [
                     {
-                        "id": obj.id,
+                        "id": str(obj.id),
                         "type": obj.type,
                         "spec_version": obj.type,
                         **obj.serialized_data,
