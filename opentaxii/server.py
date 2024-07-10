@@ -549,7 +549,7 @@ class TAXII2Server(BaseTAXIIServer):
             response["collections"] = []
             for collection in collections:
                 data = {
-                    "id": collection.id,
+                    "id": str(collection.id),
                     "title": collection.title,
                     "can_read": collection.can_read(context.account),
                     "can_write": collection.can_write(context.account),
